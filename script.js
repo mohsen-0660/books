@@ -1,4 +1,83 @@
 
+function toggleTheme() {
+
+    document.body.classList.toggle("dark-mode");
+
+    const isDark =
+        document.body.classList.contains("dark-mode");
+
+    localStorage.setItem(
+        "raml-theme",
+        isDark ? "dark" : "light"
+    );
+
+    updateThemeButton();
+}
+
+
+function updateThemeButton() {
+
+    const button =
+        document.getElementById("themeToggle");
+
+    if (!button) {
+        return;
+    }
+
+    const isDark =
+        document.body.classList.contains("dark-mode");
+
+    button.innerHTML =
+        isDark
+        ? "☀️ حالت روز"
+        : "🌙 حالت شب";
+}
+
+
+function loadTheme() {
+
+    const savedTheme =
+        localStorage.getItem("raml-theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+}
+
+
+function toggleSitesMenu() {
+
+    const menu =
+        document.getElementById("sitesDropdown");
+
+    if (!menu) {
+        return;
+    }
+
+    menu.classList.toggle("show");
+}
+
+
+function closeSitesMenu(event) {
+
+    const menu =
+        document.getElementById("sitesDropdown");
+
+    const button =
+        document.querySelector(".sites-menu-button");
+
+    if (!menu || !button) {
+        return;
+    }
+
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.classList.remove("show");
+    }
+}
+
+
 function toggleLanguage(button) {
 
     const group = button.closest(".sidebar-group");
@@ -215,6 +294,13 @@ function toggleSortDirection() {
 document.addEventListener(
     "DOMContentLoaded",
     function () {
+
+        loadTheme();
+
+        document.addEventListener(
+            "click",
+            closeSitesMenu
+        );
 
         const buttons =
             document.querySelectorAll(

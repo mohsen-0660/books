@@ -60,7 +60,7 @@ a {
     justify-content: space-between;
     gap: 15px;
     max-width: 1400px;
-    margin: 0 auto 15px;
+    margin: 20px auto 0;
 }
 
 .header-stats {
@@ -77,6 +77,51 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sites-menu {
+    position: relative;
+}
+
+.sites-menu-button {
+    border: 1px solid rgba(255,255,255,.15);
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.sites-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 230px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 7px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    display: none;
+    z-index: 1500;
+    text-align: right;
+}
+
+.sites-dropdown.show {
+    display: block;
+}
+
+.site-dropdown-link {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #222;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.site-dropdown-link:hover {
+    background: #f1f5f9;
 }
 
 .header-link {
@@ -97,6 +142,12 @@ a {
 .header-link:hover {
     background: rgba(255,255,255,.20);
     transform: translateY(-1px);
+}
+
+.theme-toggle {
+    border: 1px solid rgba(255,255,255,.15);
+    cursor: pointer;
+    font-family: inherit;
 }
 
 
@@ -653,6 +704,94 @@ a {
 
 
 /* =========================================================
+   Dark Mode
+   ========================================================= */
+
+body.dark-mode {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+body.dark-mode .search-box,
+body.dark-mode .sort-box,
+body.dark-mode .language-filter,
+body.dark-mode .book-card,
+body.dark-mode .book-header,
+body.dark-mode .content-section,
+body.dark-mode .versions-section,
+body.dark-mode .books-sidebar {
+    background: #1f2937;
+    color: #e5e7eb;
+}
+
+body.dark-mode .sidebar-title {
+    border-bottom-color: #374151;
+}
+
+body.dark-mode .sidebar-language,
+body.dark-mode .content-tab,
+body.dark-mode .book-copies {
+    background: #374151;
+    color: #e5e7eb;
+}
+
+body.dark-mode .sidebar-book {
+    color: #d1d5db;
+    border-bottom-color: rgba(255,255,255,.07);
+}
+
+body.dark-mode .sidebar-book:hover {
+    background: #374151;
+    color: #93c5fd;
+}
+
+body.dark-mode .sidebar-book.active,
+body.dark-mode .content-tab.active {
+    background: #111827;
+    color: white;
+}
+
+body.dark-mode .search-box input,
+body.dark-mode .sort-select {
+    background: #111827;
+    color: #e5e7eb;
+    border-color: #4b5563;
+}
+
+body.dark-mode .book-author,
+body.dark-mode .book-language,
+body.dark-mode .book-meta {
+    color: #cbd5e1;
+}
+
+body.dark-mode .request-book-box {
+    background: linear-gradient(135deg,#1e293b,#172554);
+    border-color: #334155;
+}
+
+body.dark-mode .version-group {
+    border-top-color: #374151;
+}
+
+body.dark-mode .site-footer {
+    color: #9ca3af;
+}
+
+body.dark-mode .sites-dropdown {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .site-dropdown-link {
+    color: #e5e7eb;
+}
+
+body.dark-mode .site-dropdown-link:hover {
+    background: #374151;
+}
+
+
+/* =========================================================
    Mobile Sidebar
    ========================================================= */
 
@@ -707,12 +846,7 @@ a {
     .header-top {
         flex-direction: column;
         gap: 8px;
-    }
-
-    .header-stats {
-        order: 2;
-        font-size: 11px;
-        padding: 6px 10px;
+        margin-top: 16px;
     }
 
     .header-links {
@@ -721,9 +855,23 @@ a {
         justify-content: center;
     }
 
+    .header-stats {
+        order: 2;
+        font-size: 11px;
+        padding: 6px 10px;
+        white-space: normal;
+        text-align: center;
+    }
+
     .header-link {
         font-size: 11px;
         padding: 7px 10px;
+    }
+
+    .sites-dropdown {
+        right: 50%;
+        transform: translateX(50%);
+        min-width: 220px;
     }
 
     .books-grid {

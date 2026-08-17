@@ -22,11 +22,15 @@ content="معرفی کتاب یک یا دو رساله در رمل (57) از ک�
 
 <header class="site-header">
 
-<div class="header-top">
+<h1>
+📚 کتابخانه تخصصی علم رمل
+</h1>
 
-<div class="header-stats">
-📚 کتب موجود فعلی : ۲۱۹ عنوان در ۳۲۴ نسخه
-</div>
+<p>
+معرفی و آرشیو کتاب‌های قدیمی و تخصصی علم رمل
+</p>
+
+<div class="header-top">
 
 <div class="header-links">
 
@@ -42,22 +46,50 @@ rel="noopener">
 👤 ارتباط با مدیر
 </a>
 
-<a class="header-link"
-href="#">
-🌐 سایت‌های دیگر
+<div class="sites-menu">
+
+<button
+class="header-link sites-menu-button"
+type="button"
+onclick="toggleSitesMenu()"
+>
+🌐 سایت‌های دیگر ▾
+</button>
+
+<div
+class="sites-dropdown"
+id="sitesDropdown"
+>
+
+<a
+class="site-dropdown-link"
+href="https://mohsen-0660.github.io/raml/"
+target="_blank"
+rel="noopener"
+>
+🧭 محاسبه زایچه رمل
 </a>
 
 </div>
 
 </div>
 
-<h1>
-📚 کتابخانه تخصصی علم رمل
-</h1>
+<button
+class="header-link theme-toggle"
+id="themeToggle"
+type="button"
+onclick="toggleTheme()"
+>
+🌙 حالت شب
+</button>
 
-<p>
-معرفی و آرشیو کتاب‌های قدیمی و تخصصی علم رمل
-</p>
+</div>
+
+<div class="header-stats">
+📚 کتب موجود فعلی : ۲۱۹ عنوان در ۳۲۴ نسخه
+</div>
+
+</div>
 
 </header>
 
